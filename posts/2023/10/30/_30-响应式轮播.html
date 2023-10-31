@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>使用 slick or vue-slick 实现响应式的轮播 | 空山新语(雨)</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <meta name="description" content="">
+    <link rel="preload" href="./assets/css/0.styles.b2e63af4.css" as="style"><link rel="preload" href="./assets/js/app.1f2d0ffa.js" as="script"><link rel="preload" href="./assets/js/7.448e65ad.js" as="script"><link rel="preload" href="./assets/js/28.216d911d.js" as="script"><link rel="prefetch" href="./assets/js/1.2ce66128.js"><link rel="prefetch" href="./assets/js/10.58d5498f.js"><link rel="prefetch" href="./assets/js/12.ca9afa3d.js"><link rel="prefetch" href="./assets/js/13.7d0819d1.js"><link rel="prefetch" href="./assets/js/14.0bfce049.js"><link rel="prefetch" href="./assets/js/15.afd705fd.js"><link rel="prefetch" href="./assets/js/16.d1aee325.js"><link rel="prefetch" href="./assets/js/17.d646717e.js"><link rel="prefetch" href="./assets/js/18.823bfbc0.js"><link rel="prefetch" href="./assets/js/19.19f40ef7.js"><link rel="prefetch" href="./assets/js/2.7f0396bc.js"><link rel="prefetch" href="./assets/js/20.715b3554.js"><link rel="prefetch" href="./assets/js/21.5ab82090.js"><link rel="prefetch" href="./assets/js/22.df05d30a.js"><link rel="prefetch" href="./assets/js/23.4fc73cf6.js"><link rel="prefetch" href="./assets/js/24.3b49dcf3.js"><link rel="prefetch" href="./assets/js/25.ce096b3f.js"><link rel="prefetch" href="./assets/js/26.b23306ae.js"><link rel="prefetch" href="./assets/js/27.8a08449a.js"><link rel="prefetch" href="./assets/js/29.1fef870a.js"><link rel="prefetch" href="./assets/js/3.9814dd10.js"><link rel="prefetch" href="./assets/js/30.6c11473d.js"><link rel="prefetch" href="./assets/js/31.09fb6e8b.js"><link rel="prefetch" href="./assets/js/32.2a40d025.js"><link rel="prefetch" href="./assets/js/33.6fec7518.js"><link rel="prefetch" href="./assets/js/34.a58d6116.js"><link rel="prefetch" href="./assets/js/35.4de3cb55.js"><link rel="prefetch" href="./assets/js/4.12f85e43.js"><link rel="prefetch" href="./assets/js/5.a7f7fff6.js"><link rel="prefetch" href="./assets/js/6.80014f19.js"><link rel="prefetch" href="./assets/js/8.5b621ab7.js"><link rel="prefetch" href="./assets/js/9.807a6695.js">
+    <link rel="stylesheet" href="./assets/css/0.styles.b2e63af4.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-meteorlxy"><header class="header" data-v-7a046aea><div data-v-e4145d0a data-v-7a046aea><nav class="navbar" data-v-e4145d0a><div class="container" data-v-e4145d0a><a href="/./" class="router-link-active" data-v-e4145d0a><span class="navbar-site-name" data-v-e4145d0a>
+          空山新语(雨)
+        </span></a> <div class="navbar-toggler" data-v-e4145d0a><svg class="icon" style="font-size:1.2em;" data-v-e4145d0a data-v-e4145d0a><title data-v-e4145d0a data-v-e4145d0a>menu</title><use xlink:href="#icon-menu" data-v-e4145d0a data-v-e4145d0a></use></svg></div> <div class="navbar-links" data-v-e4145d0a><a href="/./" class="navbar-link" data-v-e4145d0a>
+            首页
+          </a><a href="/./posts/" class="navbar-link router-link-active" data-v-e4145d0a>
+            文章
+          </a><a href="/./self-pages/" class="navbar-link" data-v-e4145d0a>
+            介绍
+          </a><a href="/./show-pages/" class="navbar-link" data-v-e4145d0a>
+            UI作品展示
+          </a></div></div></nav> <div class="navbar-holder" style="display:none;" data-v-e4145d0a></div></div> <div class="banner" data-v-98d6aa8c data-v-7a046aea data-v-7a046aea><div class="container" data-v-98d6aa8c><div class="center" data-v-98d6aa8c><h1 data-v-98d6aa8c data-v-7a046aea>
+          使用 slick or vue-slick 实现响应式的轮播
+        </h1></div></div></div></header> <div class="container clearfix show-aside" data-v-4dd605a1 data-v-4dd605a1><main class="main" data-v-4dd605a1><div class="post" data-v-4dd605a1 data-v-4dd605a1><section class="post-meta main-div" data-v-4e23451f><section class="post-date clearfix" data-v-4e23451f><span class="create-date" data-v-4e23451f>
+      Created : 2023-10-30
+    </span> <!----></section> <section class="post-links" data-v-4e23451f><a href="/./posts/2023/10/29/linux%E4%BD%BF%E7%94%A8ssh%E8%BF%9E%E6%8E%A5github.html" class="post-link" data-v-4e23451f>
+      Previous Post : linux使用ssh连接github
+    </a> <a href="/./posts/2023/10/30/_31-%E6%95%B4%E7%90%86%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%94%A8%E8%BF%87%E7%9A%84%E5%87%A0%E4%B8%AA-%E8%BD%AC%E6%8D%A2%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F-%E5%87%BD%E6%95%B0.html" class="post-link" data-v-4e23451f>
+      Next Post : 整理工作中用过的几个 转换数据格式 函数
+    </a></section></section> <article class="main-div"><div class="post-content content content__default"><h1 id="响应式的轮播"><a href="#响应式的轮播" class="header-anchor">#</a> 响应式的轮播</h1> <h2 id="slick-js"><a href="#slick-js" class="header-anchor">#</a> slick.js</h2> <blockquote><p>github: https://github.com/kenwheeler/slick/tree/master</p></blockquote> <blockquote><p>official documentation: http://kenwheeler.github.io/slick/</p></blockquote> <ol><li>一定引入 <strong>jquery.js</strong>.</li> <li><strong>jquery.js</strong> 要在 <strong>slick.js</strong> 之前引入.</li></ol> <div class="language-html extra-class"><pre class="language-html"><code><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>UTF-8<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>viewport<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>width=device-width, initial-scale=1.0<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Document<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+    <span class="token comment">&lt;!-- slick css 样式文件 --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span>
+      <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>stylesheet<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>text/css<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css<span class="token punctuation">&quot;</span></span>
+    <span class="token punctuation">/&gt;</span></span>
+    <span class="token comment">&lt;!-- jquery --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span>
+      <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name">integrity</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name">crossorigin</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>anonymous<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name">referrerpolicy</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>no-referrer<span class="token punctuation">&quot;</span></span>
+    <span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+    <span class="token comment">&lt;!-- vue --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span>
+      <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>text/javascript<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js<span class="token punctuation">&quot;</span></span>
+    <span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+      <span class="token selector">.item</span> <span class="token punctuation">{</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 300px<span class="token punctuation">;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+        <span class="token property">border</span><span class="token punctuation">:</span> 1px solid #e4e4e4<span class="token punctuation">;</span>
+        <span class="token property">border-radius</span><span class="token punctuation">:</span> 10%<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>responsive<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>item<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>item<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>item<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>item<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>4<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>item<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>5<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+      <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">&quot;.responsive&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">slick</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token literal-property property">dots</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">infinite</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">speed</span><span class="token operator">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">slidesToShow</span><span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">slidesToScroll</span><span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">responsive</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            <span class="token literal-property property">breakpoint</span><span class="token operator">:</span> <span class="token number">1024</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">settings</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token literal-property property">slidesToShow</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+              <span class="token literal-property property">slidesToScroll</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+              <span class="token literal-property property">infinite</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+              <span class="token literal-property property">dots</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            <span class="token literal-property property">breakpoint</span><span class="token operator">:</span> <span class="token number">600</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">settings</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token literal-property property">slidesToShow</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+              <span class="token literal-property property">slidesToScroll</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            <span class="token literal-property property">breakpoint</span><span class="token operator">:</span> <span class="token number">480</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">settings</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token literal-property property">slidesToShow</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+              <span class="token literal-property property">slidesToScroll</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token comment">// You can unslick at a given breakpoint now by adding:</span>
+          <span class="token comment">// settings: &quot;unslick&quot;</span>
+          <span class="token comment">// instead of a settings object</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h2 id="vue-slick"><a href="#vue-slick" class="header-anchor">#</a> vue-slick</h2> <blockquote><p>github: https://github.com/staskjs/vue-slick/tree/master</p></blockquote> <ol><li>安装</li></ol> <div class="language-shell extra-class"><pre class="language-shell"><code>
+<span class="token function">npm</span> <span class="token function">install</span> vue-slick
+<span class="token comment"># or</span>
+<span class="token function">yarn</span> <span class="token function">add</span> vue-slick
+</code></pre></div><ol start="2"><li>demo</li></ol> <div class="language-vue extra-class"><pre class="language-vue"><code>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Slick</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>slick<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:options</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>slickOptions<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Slick</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">import</span> Slick <span class="token keyword">from</span> <span class="token string">&quot;vue-slick&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token function">data</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">slickOptions</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">dots</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">infinite</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">slidesToShow</span><span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">slidesToScroll</span><span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">responsive</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            <span class="token literal-property property">breakpoint</span><span class="token operator">:</span> <span class="token number">1024</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">settings</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token literal-property property">slidesToShow</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+              <span class="token literal-property property">slidesToScroll</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+              <span class="token literal-property property">infinite</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+              <span class="token literal-property property">dots</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            <span class="token literal-property property">breakpoint</span><span class="token operator">:</span> <span class="token number">900</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">settings</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token literal-property property">slidesToShow</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+              <span class="token literal-property property">slidesToScroll</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span>
+            <span class="token literal-property property">breakpoint</span><span class="token operator">:</span> <span class="token number">480</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">settings</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token literal-property property">slidesToShow</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+              <span class="token literal-property property">slidesToScroll</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">components</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    Slick
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div></div></article> <section class="post-meta main-div" data-v-4e23451f><section class="post-date clearfix" data-v-4e23451f><span class="create-date" data-v-4e23451f>
+      Created : 2023-10-30
+    </span> <!----></section> <section class="post-links" data-v-4e23451f><a href="/./posts/2023/10/29/linux%E4%BD%BF%E7%94%A8ssh%E8%BF%9E%E6%8E%A5github.html" class="post-link" data-v-4e23451f>
+      Previous Post : linux使用ssh连接github
+    </a> <a href="/./posts/2023/10/30/_31-%E6%95%B4%E7%90%86%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%94%A8%E8%BF%87%E7%9A%84%E5%87%A0%E4%B8%AA-%E8%BD%AC%E6%8D%A2%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F-%E5%87%BD%E6%95%B0.html" class="post-link" data-v-4e23451f>
+      Next Post : 整理工作中用过的几个 转换数据格式 函数
+    </a></section></section> <div id="post-comments" class="main-div"><!----></div></div></main> <aside class="aside" data-v-4dd605a1><div class="info-card main-div" data-v-9d847660 data-v-4dd605a1><div class="info-card-header" style="background-size:cover;background-repeat:no-repeat;background-position:center;background-attachment:scroll;background-image:url(./img/header-image-02.jpg);" data-v-9d847660><img src="./img/avatar.jpg" alt="xue" class="info-avatar" data-v-9d847660></div> <div class="info-card-body" data-v-9d847660><section class="info-nickname" data-v-9d847660>
+      xue
+    </section> <section class="info-desc" data-v-9d847660>Love coding<br/>Happy Life</section> <section class="info-contact" data-v-9d847660><section data-v-9d847660><span title="ShangHai City, China" data-v-9d847660 data-v-9d847660><svg class="icon" style="font-size:1em;" data-v-9d847660 data-v-9d847660><title data-v-9d847660 data-v-9d847660>ShangHai City, China</title><use xlink:href="#icon-location" data-v-9d847660 data-v-9d847660></use></svg><span class="info-text" data-v-9d847660 data-v-9d847660>
+          ShangHai City, China
+        </span></span></section> <!----> <section data-v-9d847660><a href="mailto:bx.ma0327@gmail.com" title="bx.ma0327@gmail.com" data-v-9d847660 data-v-9d847660><svg class="icon" style="font-size:1em;" data-v-9d847660 data-v-9d847660><title data-v-9d847660 data-v-9d847660>bx.ma0327@gmail.com</title><use xlink:href="#icon-email" data-v-9d847660 data-v-9d847660></use></svg><span class="info-text" data-v-9d847660 data-v-9d847660>
+          bx.ma0327@gmail.com
+        </span></a></section></section></div> <!----></div> <div class="post-nav-card main-div" style="position:relative;top:0;width:0px;" data-v-4dd605a1><div class="post-nav-contents"><svg class="icon"><title>book</title><use xlink:href="#icon-book"></use></svg> <span>Table of Contents</span> <div class="post-nav-toc"><ul><li><a href="/./posts/2023/10/30/_30-%E5%93%8D%E5%BA%94%E5%BC%8F%E8%BD%AE%E6%92%AD.html#slick-js">slick.js</a></li><li><a href="/./posts/2023/10/30/_30-%E5%93%8D%E5%BA%94%E5%BC%8F%E8%BD%AE%E6%92%AD.html#vue-slick">vue-slick</a></li></ul></div></div> <div class="post-nav-comments"><svg class="icon"><title>comment</title><use xlink:href="#icon-comment"></use></svg> <a href="/./posts/2023/10/30/_30-%E5%93%8D%E5%BA%94%E5%BC%8F%E8%BD%AE%E6%92%AD.html#post-comments">
+      Comments
+    </a></div></div></aside></div> <footer class="footer" data-v-1375e54c><!----> <p class="footer-text" data-v-1375e54c><span data-v-1375e54c>Powered by </span> <a href="https://github.com/vuejs/vuepress" target="_blank" data-v-1375e54c>
+      VuePress
+    </a> <span data-v-1375e54c> | </span> <a href="https://github.com/meteorlxy/vuepress-theme-meteorlxy" target="_blank" data-v-1375e54c>
+        meteorlxy
+      </a></p> <!----></footer></div><div class="global-ui"><!----><!----></div></div>
+    <script src="./assets/js/app.1f2d0ffa.js" defer></script><script src="./assets/js/7.448e65ad.js" defer></script><script src="./assets/js/28.216d911d.js" defer></script>
+  </body>
+</html>
